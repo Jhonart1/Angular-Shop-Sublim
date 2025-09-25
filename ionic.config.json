@@ -1,0 +1,7 @@
+{
+  "name": "Angular-Shop-Sublim",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
