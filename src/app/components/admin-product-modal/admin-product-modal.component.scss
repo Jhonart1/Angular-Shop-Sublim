@@ -1,0 +1,77 @@
+@use '../../../theme/variables.scss' as v;
+
+:host {
+  display: block;
+  --ion-background-color: #f9f9f9;
+}
+
+ion-header {
+  --background: v.$primary-color;
+  ion-toolbar {
+    --background: v.$primary-color;
+  }
+
+  ion-title {
+    font-weight: 600;
+    color: #fff;
+  }
+
+  ion-button {
+    ion-icon {
+      font-size: 1.5rem;
+      color: #fff;
+    }
+  }
+}
+
+ion-content {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  overflow-y: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  ion-item {
+    --background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 8px 12px;
+    margin-bottom: 8px;
+
+    ion-input,
+    ion-textarea,
+    ion-select {
+      --padding-start: 8px;
+      --padding-end: 8px;
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    ion-toggle {
+      margin-top: 4px;
+    }
+  }
+
+  ion-button[type='submit'] {
+    background: v.$primary-color;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}

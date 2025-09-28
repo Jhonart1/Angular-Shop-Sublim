@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Añadir Nuevo Producto</ion-title>
+    <!-- Botón de cerrar fijo en la esquina derecha -->
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()" fill="clear">
+        <img src="../../../assets/cerrar.png" alt="">
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form #productForm="ngForm" (ngSubmit)="addProduct(productForm)">
+    
+    <ion-item>
+      <ion-input 
+        label="Nombre" 
+        labelPlacement="floating" 
+        type="text" 
+        name="name" 
+        [(ngModel)]="newProduct.name" 
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input 
+        label="Precio ($)" 
+        labelPlacement="floating" 
+        type="number" 
+        name="price" 
+        [(ngModel)]="newProduct.price" 
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input 
+        label="URL de Imagen" 
+        labelPlacement="floating" 
+        type="url" 
+        name="imageUrl" 
+        [(ngModel)]="newProduct.imageUrl" 
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea 
+        label="Descripción" 
+        labelPlacement="floating" 
+        name="description" 
+        [(ngModel)]="newProduct.description"
+      ></ion-textarea>
+    </ion-item>
+    
+    <ion-item>
+      <ion-toggle 
+        labelPlacement="start" 
+        justify="space-between"
+        name="isFeatured" 
+        [(ngModel)]="newProduct.isFeatured"
+      >Destacado en Carrusel</ion-toggle>
+    </ion-item>
+    
+    <ion-item>
+      <ion-select label="Categoría" name="category" [(ngModel)]="newProduct.category">
+        <ion-select-option value="General">General</ion-select-option>
+        <ion-select-option value="Camisetas">Camisas</ion-select-option>
+        <ion-select-option value="Tazas">Tazas</ion-select-option>
+        <ion-select-option value="Gorras">Gorras</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-input 
+        label="Stock (Inventario)" 
+        labelPlacement="floating" 
+        type="number" 
+        name="stock" 
+        [(ngModel)]="newProduct.stock" 
+        min="0"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="!productForm.valid" class="ion-padding-top">
+      Guardar Producto
+    </ion-button>
+  </form>
+</ion-content>

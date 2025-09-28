@@ -1,0 +1,35 @@
+<ion-content [fullscreen]="true">
+  
+  <div class="login-container">
+    
+    <div class="logo-section">
+      <ion-icon name="lock-closed-outline" class="app-icon"></ion-icon>
+      <h1>Iniciar Sesión</h1>
+    </div>
+
+    <div class="welcome-message">
+      <p>
+        Usa tu cuenta de Google para acceder a todas las funciones de tu aplicación.
+      </p>
+    </div>
+    
+    <div class="button-section">
+      <ion-button 
+        expand="block" 
+        size="large" 
+        (click)="loginConGoogle()"
+        class="google-button"
+      >
+        <img src="assets/google.png" alt="Google Logo" class="google-logo-img">
+        <span>Continuar con Google</span>
+      </ion-button>
+      
+      <p class="terms-text">
+        Al continuar, aceptas nuestros 
+        <a href="#">Términos y Condiciones</a>.
+      </p>
+    </div>
+    
+  </div>
+
+</ion-content>

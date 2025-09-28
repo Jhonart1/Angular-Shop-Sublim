@@ -1,0 +1,10 @@
+<!-- Tarjeta solo con la imagen -->
+<ion-card class="product-card" (click)="openDetail()">
+  <img [src]="product.imageUrl" [alt]="product.name" />
+</ion-card>
+
+<!-- Etiquetas fuera de la tarjeta -->
+<div class="product-info">
+  <div class="product-name">{{ product.name }}</div>
+  <div class="product-price">{{ product.price | currency }}</div>
+</div>

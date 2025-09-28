@@ -1,0 +1,23 @@
+<div class="carousel-wrapper">
+  <div class="carousel-track" *ngIf="products$ | async as products">
+    <div class="carousel-item" *ngFor="let product of products">
+      <ion-card class="product-card">
+        <img [src]="product.imageUrl" [alt]="product.name" />
+        <div class="product-labels">
+          <div class="product-name">{{ product.name }}</div>
+          <div class="product-price">{{ product.price | currency }}</div>
+        </div>
+      </ion-card>
+    </div>
+    <!-- Duplicamos los items para efecto loop -->
+    <div class="carousel-item" *ngFor="let product of products">
+      <ion-card class="product-card">
+        <img [src]="product.imageUrl" [alt]="product.name" />
+        <div class="product-labels">
+          <div class="product-name">{{ product.name }}</div>
+          <div class="product-price">{{ product.price | currency }}</div>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+</div>

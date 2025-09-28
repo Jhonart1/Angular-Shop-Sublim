@@ -1,0 +1,97 @@
+.category-grid {
+  display: grid;
+  justify-content: center;
+  gap: 12px;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (min-width: 576px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.category-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-card {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  // 🎯 Efecto hover con gradiente
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    padding: 3px;
+    background: linear-gradient(270deg, #13a4ec, lighten(#13a4ec, 15%), darken(#13a4ec, 10%));
+    background-size: 400% 400%;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+    &::after {
+      opacity: 1;
+      animation: borderWave 3s linear infinite;
+    }
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// Animación gradiente
+@keyframes borderWave {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.category-info {
+  text-align: center;
+  margin-top: 4px;
+  width: 100%;
+  padding: 0 4px;
+
+  .category-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #888;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+

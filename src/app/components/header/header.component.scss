@@ -1,0 +1,144 @@
+
+ion-header {
+    box-shadow: none !important; 
+    border-bottom: 1px solid rgba(24, 155, 236, 0.2);
+    background: white;
+    // 🎯 CLAVE: Eliminar cualquier margen superior que pueda estar presente
+    margin-top: 0 !important; 
+}
+
+ion-toolbar {
+    --background: white;
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-top: 0;
+    --padding-bottom: 0;
+    
+    // 🎯 Establecemos la altura del toolbar
+    height: 80px; 
+    
+    // 🎯 Asegurar que el contenedor interno de los slots de Ionic se estire.
+    // Esto es crucial para que el Flexbox interno funcione.
+    min-height: 80px; 
+}
+
+// 🎯 CONTENEDOR CENTRAL: Flexbox para el layout y centrado
+.toolbar-content-wrapper {
+    display: flex;
+    justify-content: space-between; 
+    // 🎯 CLAVE: Centrado vertical de todos los hijos (Logo, Nav, Íconos)
+    align-items: center; 
+    height: 100%; /* Ocupa toda la altura del toolbar (80px) */
+    width: 100%;
+    padding: 0 16px; 
+    
+    @media (min-width: 768px) {
+        margin: 0 auto; 
+    }
+}
+
+
+/* --- Contenedor de Navegación y Búsqueda --- */
+.header-nav-search {
+    flex-grow: 1; 
+    display: flex;
+    align-items: center; /* Asegura el centrado vertical de enlaces y searchbar */
+    gap: 32px; 
+    margin: 0 40px; 
+    
+    @media (max-width: 767px) {
+        display: none; 
+    }
+
+    @media (max-width: 991px) { 
+        display: none; 
+    }
+}
+
+/* --- Enlaces de Navegación --- */
+.header-nav-links {
+    display: flex;
+    gap: 32px;
+    
+    .nav-link {
+        color: #6b7280; 
+        text-decoration: none;
+        font-size: 0.875rem; 
+        font-weight: 500;
+        // 🎯 Añadir margin vertical cero, aunque align-items debería bastar
+        margin: 0; 
+        transition: color 0.2s;
+
+        &:hover, &.active {
+            color: var(--ion-color-primary, #189bec);
+        }
+    }
+}
+
+/* --- Barra de Búsqueda Integrada --- */
+.integrated-searchbar {
+    max-width: 350px; 
+    --background: var(--ion-color-light, #f4f5f8); 
+    --border-radius: 8px;
+    --box-shadow: none;
+    
+    // Asegurar que la altura del searchbar es compatible con el centrado
+    height: 40px; 
+    --min-height: 40px;
+
+    .searchbar-input-container {
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+    }
+}
+
+.header-icons-area {
+    display: flex;
+    align-items: center; /* Centrado vertical asegurado por el padre */
+
+    .cart-button {
+        width: 80px;
+        height: 80px;
+
+    }
+    .icon-button{
+
+    }
+    .user-button {
+        // 🎯 Íconos más pequeños y elegantes
+        width: 100px;
+        height: auto;
+        .profile-image-circle{
+          border-radius: 100px;
+        }
+    }
+}
+
+.header-logo-area {
+      display: flex;
+    align-items: center; /* Centrado vertical asegurado por el padre */
+    
+    .logo-app {
+      background-color: #189bec;
+      width: 50px;
+      height: 50px;
+        @media (max-width: 767px) {
+            display: none;
+        }
+    }
+}
+
+
+.menu-button-mobile {
+    display: none; /* Ocultar en Desktop por defecto */
+    
+    // Mostrar el botón de menú solo en Mobile y Tablet
+    @media (max-width: 991px) { 
+        display: block; 
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+        --padding-start: 0;
+        --padding-end: 0;
+    }
+}

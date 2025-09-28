@@ -1,0 +1,134 @@
+/* src/app/tab3/tab3.page.scss (ESTILOS MEJORADOS) */
+
+ion-content {
+  --ion-background-color: #f7f7f7; 
+  
+  // Usar Flexbox para centrar el contenido en el viewport
+  display: flex;
+  justify-content: center;
+  
+  // Asegurar que el área de scroll permita el centrado en web
+  &::part(scroll) {
+    display: flex;
+    justify-content: center;
+    width: 100%; // Asegura que el scroll ocupe el 100% del ancho.
+  }
+}
+
+.profile-wrapper {
+  width: 100%;
+  max-width: 1000px; 
+  background: white; 
+  min-height: 100%; 
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05); 
+  align-content: center;
+}
+
+
+
+
+/* --- Encabezado y Avatar --- */
+.profile-header {
+  // Los estilos ya definidos para el header se mantienen
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+  position: relative; 
+  background: var(--ion-color-light); 
+}
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.initials-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  background: var(--ion-color-primary, #3880ff); // Usar el color primario de Ionic
+  border-radius: 50%;
+}
+
+.edit-fab {
+  position: absolute;
+  top: 100px; // Ajusta para superponer en el borde inferior del avatar
+  right: calc(50% - 50px); // Centrar con respecto al avatar (100px / 2)
+  transform: translate(50px, -5px); // Mover a la esquina inferior derecha del avatar
+  
+  ion-fab-button {
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.user-info {
+  text-align: center;
+  margin-top: 10px;
+
+  h3 {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 0;
+  }
+  p {
+    color: var(--ion-color-medium);
+    font-size: 0.9em;
+    margin-top: 2px;
+  }
+}
+
+/* --- Estilo de las Listas de Información --- */
+.info-group {
+  margin-top: 15px;
+  // NO usamos background: white; aquí, ya que el wrapper tiene el fondo blanco
+  background: transparent; 
+
+  ion-list-header {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #000; // Color negro para los títulos de sección
+    padding-top: 15px;
+    padding-bottom: 5px;
+  }
+  
+  ion-item {
+    --padding-start: 16px;
+    --inner-padding-end: 16px;
+    
+    ion-label {
+      h2 {
+        font-size: 1em;
+        font-weight: 500; // Más delgado que el título de sección
+        margin-bottom: 2px;
+      }
+      p {
+        color: var(--ion-color-medium);
+        font-size: 0.8em;
+      }
+    }
+  }
+}
+
+.info-group {
+    // Añadimos padding inferior solo a la última lista si es necesario
+    &:last-of-type {
+        margin-bottom: 0; 
+    }
+}
+
+/* --- Estado de Carga --- */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

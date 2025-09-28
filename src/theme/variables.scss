@@ -1,2 +1,42 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+/* Dark theme variables */
+
+
+// src/theme/variables.scss
+$primary-color: #13a4ec; // color principal de la app
+
+// Ejemplos de variantes
+$primary-color-light: lighten($primary-color, 15%);
+$primary-color-dark: darken($primary-color, 10%);
+
+$primary-color: #13a4ec;
+:root {
+  --ion-color-primary: #{$primary-color};
+}
+
+.max-width-container {
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @media (min-width: 768px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+.custom-product-modal {
+  --width: 95%;          // ancho del modal
+  --max-width: 500px;    // máximo ancho en pantallas grandes
+  --height: 80% ;         // altura del modal
+  --max-height: auto;   // máximo alto en pantallas grandes
+  --border-radius: 12px;
+  --overflow: hidden;    // evita scroll del modal
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

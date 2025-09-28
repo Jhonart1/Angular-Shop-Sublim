@@ -1,0 +1,68 @@
+.category-grid {
+  display: grid;
+  justify-content: center;       // centra el grid horizontalmente
+  gap: 12px;                     // espacio entre tarjetas
+
+  // Responsive: cantidad de columnas según pantalla
+  grid-template-columns: repeat(2, 1fr); // mobile por defecto 2 columnas
+
+  @media (min-width: 576px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(6, 1fr); // web grande
+  }
+}
+
+.category-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-card {
+  width: 100%;
+  aspect-ratio: 1 / 1;      // mantiene cuadrado
+  max-width: 120px;         // tamaño reducido
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.category-info {
+  text-align: center;
+  margin-top: 4px;
+  width: 100%;
+
+  .category-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #888;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

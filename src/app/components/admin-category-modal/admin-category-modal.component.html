@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Añadir Nueva Categoría</ion-title>
+    <!-- Botón de cerrar fijo en la esquina derecha -->
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()" fill="clear">
+        <img src="../../../assets/cerrar.png" alt="Cerrar">
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form #categoryForm="ngForm" (ngSubmit)="addCategory(categoryForm)">
+    
+    <ion-item>
+      <ion-input 
+        label="Nombre de la Categoría" 
+        labelPlacement="floating" 
+        type="text" 
+        name="name" 
+        [(ngModel)]="newCategory.name" 
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input 
+        label="URL de Imagen" 
+        labelPlacement="floating" 
+        type="url" 
+        name="imgUrl" 
+        [(ngModel)]="newCategory.imgUrl" 
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input 
+        label="Color Principal" 
+        labelPlacement="floating" 
+        type="text" 
+        name="color" 
+        [(ngModel)]="newCategory.color" 
+        placeholder="#13a4ec"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="!categoryForm.valid" class="ion-padding-top">
+      Guardar Categoría
+    </ion-button>
+  </form>
+</ion-content>

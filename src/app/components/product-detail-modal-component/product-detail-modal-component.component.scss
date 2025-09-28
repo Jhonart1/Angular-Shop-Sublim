@@ -1,0 +1,84 @@
+.product-modal-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0; // quitar padding que genera espacio lateral
+  box-sizing: border-box;
+
+  .product-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%; // ocupa todo el ancho disponible
+    max-width: 100%; // eliminar max-width fijo
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    box-sizing: border-box;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .product-image {
+    width: 100%;
+    img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+  }
+
+  .product-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .product-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 8px;
+    }
+
+    .product-price {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 16px;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+
+      .quantity {
+        font-size: 1.2rem;
+        min-width: 32px;
+        text-align: center;
+      }
+
+      ion-button {
+        --background: $primary-color;
+        --color: #fff;
+      }
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+
+      ion-button {
+        flex: 1;
+      }
+
+      ion-button[color="primary"] {
+        --background: $primary-color;
+        --color: #fff;
+        font-weight: 600;
+      }
+    }
+  }
+}

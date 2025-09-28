@@ -1,0 +1,24 @@
+
+<h1 style="margin-left: 30px;">Categorías</h1>
+<div class="category-grid">
+  <!-- Botón Todos -->
+  <div class="category-block">
+    <ion-card button (click)="selectFilter(null)" class="category-card">
+      <img [src]="allCategory.imgUrl" alt="Todos" />
+    </ion-card>
+    <div class="category-info">
+      <div class="category-name">{{ allCategory.name }}</div>
+    </div>
+  </div>
+
+  <!-- Categorías dinámicas -->
+
+  <div class="category-block" *ngFor="let category of categories$ | async">
+    <ion-card button (click)="selectFilter(category)" class="category-card">
+      <img [src]="category.imgUrl" alt="{{ category.name }}" />
+    </ion-card>
+    <div class="category-info">
+      <div class="category-name">{{ category.name }}</div>
+    </div>
+  </div>
+</div>

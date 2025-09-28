@@ -1,0 +1,23 @@
+<ion-menu side="end" menuId="side-menu" contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menú</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="closeMenu()">
+          <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="side-menu-content">
+    <div class="menu-grid">
+      <ion-button expand="block" (click)="goToHome()">Home</ion-button>
+      <ion-button expand="block" (click)="goToProducts()">Productos</ion-button>
+    </div>
+
+    <ion-button expand="block" color="danger" class="logout-button" (click)="logout()">
+      Cerrar sesión
+    </ion-button>
+  </ion-content>
+</ion-menu>

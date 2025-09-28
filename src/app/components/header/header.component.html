@@ -1,0 +1,56 @@
+<ion-header class="ion-no-border web-header-shadow">
+  
+  <ion-toolbar class="main-toolbar">
+    
+    <div class="toolbar-content-wrapper max-width-container">
+      
+      <div class="header-logo-area">
+        <ion-button shape="round" fill="clear" class="icon-app" (click)="goToHome()">
+          <img src="assets/icon/favicon.png" alt="Logo de la Aplicación">
+        </ion-button>
+      </div>
+      
+      <div class="header-nav-search">
+        
+        <nav class="header-nav-links">
+          <a class="nav-link active" (click)="goToHome()"style="cursor: pointer;" >Home</a> 
+          <a class="nav-link" (click)="goToProducts()" style="cursor: pointer;">Productos</a>
+        </nav>
+        
+        <ion-searchbar 
+          placeholder="Buscar productos..." 
+          class="integrated-searchbar"
+          animated="true"
+        ></ion-searchbar>
+      </div>
+      
+      <div class="header-icons-area">
+        
+        <ion-button shape="round" fill="clear" class="icon-button cart-button" (click)="onCartClick()">
+          <img src="assets/cart.png">
+        </ion-button>
+        
+        <ion-button shape="round" fill="clear" class="icon-button user-button profile-display-button" (click)="goToProfile()" >
+          
+          <img 
+            *ngIf="userPhotoUrl" 
+            [src]="userPhotoUrl" 
+            alt="Foto de Perfil" 
+            class="profile-image-circle"
+          >
+          
+          <ion-icon 
+            *ngIf="!userPhotoUrl" 
+            name="person-outline" 
+            slot="icon-only"
+          ></ion-icon>
+          
+        </ion-button>
+        <ion-menu-button class="menu-button-mobile" menu="main-menu"></ion-menu-button>
+        
+      </div>
+
+    </div>
+  </ion-toolbar>
+  
+</ion-header>

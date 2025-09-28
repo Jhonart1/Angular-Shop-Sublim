@@ -1,17 +1,16 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<!-- MENU DERECHO -->
+<app-side-menu></app-side-menu>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<!-- HEADER -->
+<app-header [userPhotoUrl]="userPhotoUrl$ | async"></app-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<!-- CONTENIDO PRINCIPAL -->
+<ion-content id="main-content" [fullscreen]="true">
+  <div class="max-width-container">
+    <app-carousel></app-carousel>
+    <app-categories-grid></app-categories-grid>
+    <div class="filters-separator"></div>
+    <app-products-carousel></app-products-carousel>
+  </div>
 </ion-content>
+

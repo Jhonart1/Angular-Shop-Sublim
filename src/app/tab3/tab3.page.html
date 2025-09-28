@@ -1,17 +1,137 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mi Cuenta</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ng-container *ngIf="user$ | async as user; else loading">
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+    <div class="profile-wrapper">
+    
+      <div class="profile-header ion-padding-top">
+        <ion-avatar class="profile-avatar">
+          <img *ngIf="user.photoURL" [src]="user.photoURL" alt="Foto de Perfil">
+          <div *ngIf="!user.photoURL" class="initials-placeholder">
+            {{ getUserInitials(user.displayName) }}
+          </div>
+        </ion-avatar>
+
+        <div class="user-info">
+          <h3>{{ user.displayName || 'Usuario sin nombre' }}</h3>
+          <p>{{ user.email }}</p>
+        </div>
+      </div>
+
+      <ion-list class="info-group" lines="full">
+        <ion-list-header>
+          <ion-label>Información Personal</ion-label>
+        </ion-list-header>
+
+        <ion-item detail button (click)="showToast()"> 
+          <ion-label>
+            <h2>Nombre: {{ user.displayName || 'No definido' }}</h2>
+            <p>Editar información personal</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item detail button (click)="showToast()"> 
+          <ion-label>
+            <h2>Teléfono: +52 55 1234 5678</h2> 
+            <p>Editar número de teléfono</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item detail button (click)="showToast()"> 
+          <ion-label>
+            <h2>Correo: {{ user.email }}</h2>
+            <p>Editar correo electrónico</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="info-group" lines="full">
+        <ion-list-header>
+          <ion-label>Pedidos</ion-label>
+        </ion-list-header>
+
+        <ion-item detail button (click)="showToast()"> 
+          <ion-label>
+            <h2>Historial de pedidos</h2>
+            <p>Ver historial de pedidos</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item detail button (click)="showToast()"> 
+          <ion-label>
+            <h2>Pedidos en curso</h2>
+            <p>Ver pedidos en curso</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="info-group" lines="full">
+        <ion-list-header>
+          <ion-label>Envío y Pago</ion-label>
+        </ion-list-header>
+
+        <ion-item detail button (click)="showToast()"> 
+          <ion-label>
+            <h2>Direcciones de envío</h2>
+            <p>Editar direcciones de envío</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item detail button (click)="showToast()"> 
+          <ion-label>
+            <h2>Métodos de pago</h2>
+            <p>Editar métodos de pago</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="info-group" lines="full">
+  <ion-list-header>
+    <ion-label>Administración</ion-label>
+  </ion-list-header>
+
+  <ion-item detail button (click)="openAdminModal()" color="light"> 
+    <ion-icon slot="start" name="add-circle" color="primary"></ion-icon>
+    <ion-label>
+      <h2>Añadir Productos</h2>
+      <p>Abrir panel para cargar nuevos artículos a la tienda.</p>
+    </ion-label>
+  </ion-item>
+  <ion-item detail button (click)="openAdminOfferModal()" color="light">
+  <ion-icon slot="start" name="pricetag" color="primary"></ion-icon>
+  <ion-label>
+    <h2>Añadir Ofertas</h2>
+    <p>Abrir panel para cargar nuevas ofertas.</p>
+  </ion-label>
+</ion-item>
+<ion-item detail button (click)="openAdminCategoryModal()" color="light">
+  <ion-icon slot="start" name="add-circle" color="primary"></ion-icon>
+  <ion-label>
+    <h2>Añadir Categorías</h2>
+    <p>Abrir panel para cargar nuevas categorías.</p>
+  </ion-label>
+</ion-item>
+</ion-list>
+
+      <ion-button  (click)="logout()" class="logout-button-spacer" size="large" style="padding-bottom: 100px  ; --background: #13a4ec;">
+        Cerrar Sesión
+      </ion-button>
+
+    </div>
+    </ng-container>
+
+  <ng-template #loading>
+    <div class="loading-state">
+      <ion-spinner name="crescent"></ion-spinner>
+      <ion-text color="medium">Cargando perfil...</ion-text>
+    </div>
+  </ng-template>
 </ion-content>

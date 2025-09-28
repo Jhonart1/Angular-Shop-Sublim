@@ -1,0 +1,71 @@
+@use '../../../theme/variables.scss' as v;
+
+/* Wrapper para ocupar todo el ancho */
+.product-carousel-wrapper {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%); // neutraliza margen automático de contenedores padres
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Contenedor del carrusel */
+.product-carousel {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Slide */
+swiper-container swiper-slide {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Tarjeta de oferta */
+ion-card.product-card {
+  --ion-background-color: #ffffff;
+  margin: 0 !important;
+  width: 100% !important;
+  height: 350px; 
+  overflow: hidden;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  /* Imagen ocupa todo el card */
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Degradado en borde inferior más sutil */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* más alto para suavizar el desvanecido */
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      rgba(var(--ion-background-color-rgb, 255,255,255), 0) 0%,   /* transparente arriba */
+      rgba(var(--ion-background-color-rgb, 255,255,255), 0.5) 50%, /* semitransparente intermedio */
+      var(--ion-background-color) 100%                              /* color de fondo sólido abajo */
+    );
+  }
+}

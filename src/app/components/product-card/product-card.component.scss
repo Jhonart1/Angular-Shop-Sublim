@@ -1,0 +1,43 @@
+.product-card {
+  width: 100%;
+  aspect-ratio: 1 / 1; // Solo la imagen cuadrada
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.product-info {
+  text-align: left;
+  margin-top: 8px; // espacio entre tarjeta y etiquetas
+  padding: 9px;
+
+  .product-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 4px;
+  }
+
+  .product-price {
+    font-size: 0.9rem;
+    color: #888;
+  }
+}

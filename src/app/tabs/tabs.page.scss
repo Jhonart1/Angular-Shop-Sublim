@@ -1,1 +1,7 @@
 
+/* Mostrar tabs solo en pantallas menores a 768px */
+ion-tab-bar {
+  @media (min-width: 768px) {
+    display: none;
+  }
+}

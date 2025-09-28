@@ -1,17 +1,23 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header [userPhotoUrl]="userPhotoUrl$ | async"></app-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="max-width-container">
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <!-- Filtros de categorías -->
+    <app-category-filters (filterSelected)="onFilterSelected($event)"></app-category-filters>
+    <div class="filters-separator"></div>
+    <!-- Grid de productos -->
+     <h1 style="margin-left: 20px;">Resultados</h1>
+    <ion-grid>
+      <ion-row>
+        <ion-col 
+          *ngFor="let product of filteredProducts$ | async" 
+          size="6" size-md="4" size-lg="3"
+        >
+          <app-product-card [product]="product"></app-product-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
 </ion-content>

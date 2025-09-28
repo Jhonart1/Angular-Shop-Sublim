@@ -1,0 +1,27 @@
+<ion-content [fullscreen]="true" class="product-modal-content">
+
+  <div class="product-container">
+
+    <div class="product-image">
+      <img [src]="product.imageUrl" [alt]="product.name" />
+    </div>
+
+    <div class="product-info">
+      <h2 class="product-name">{{ product.name }}</h2>
+      <p class="product-price">{{ product.price | currency }}</p>
+
+      <div class="quantity-controls">
+        <ion-button size="small" (click)="decrement()">-</ion-button>
+        <span class="quantity">{{ quantity }}</span>
+        <ion-button size="small" (click)="increment()">+</ion-button>
+      </div>
+
+      <!-- Botones al final uno al lado del otro -->
+      <div class="action-buttons">
+        <ion-button color="medium" (click)="cancel()">Cancelar</ion-button>
+        <ion-button color="primary" (click)="addToCart()">Añadir al carrito</ion-button>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

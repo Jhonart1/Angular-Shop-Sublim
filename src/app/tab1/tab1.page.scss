@@ -1,0 +1,53 @@
+/* src/app/tab1/tab1.page.scss */
+@use '../../theme/variables.scss' as v;
+
+/* Contenedor principal */
+.max-width-container {
+  padding: 16px;
+
+  @media (min-width: 768px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* Contenido del menú */
+.menu-grid-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+  gap: 16px;
+}
+
+/* Botones principales */
+.menu-top-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  ion-button {
+    --border-radius: 8px;
+    --background: var(--ion-color-primary, #189bec);
+    --color: #fff;
+    font-weight: 600;
+  }
+}
+
+/* Botón de cerrar sesión */
+.menu-logout {
+  margin-top: auto;
+
+  ion-button {
+    --border-radius: 8px;
+    font-weight: 600;
+  }
+}
+
+
+.filters-separator {
+  width: 100%;
+  height: 1px;
+  background-color: v.$primary-color-light; // color global suavizado
+  margin: 16px 0;
+}

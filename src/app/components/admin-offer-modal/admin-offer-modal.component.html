@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Añadir Nueva Oferta</ion-title>
+    <!-- Botón de cerrar fijo en la esquina derecha -->
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()" fill="clear">
+        <img src="../../../assets/cerrar.png" alt="">
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form #offerForm="ngForm" (ngSubmit)="addOffer(offerForm)">
+    
+    <ion-item>
+      <ion-input 
+        label="Nombre de la Oferta" 
+        labelPlacement="floating" 
+        type="text" 
+        name="name" 
+        [(ngModel)]="newOffer.name" 
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input 
+        label="URL de Imagen" 
+        labelPlacement="floating" 
+        type="url" 
+        name="imgUrl" 
+        [(ngModel)]="newOffer.imgUrl" 
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea 
+        label="Descripción" 
+        labelPlacement="floating" 
+        name="description" 
+        [(ngModel)]="newOffer.description">
+      </ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-toggle 
+        labelPlacement="start" 
+        justify="space-between"
+        name="isVisible" 
+        [(ngModel)]="newOffer.isVisible"
+      >Visible en Carrusel</ion-toggle>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="!offerForm.valid" class="ion-padding-top">
+      Guardar Oferta
+    </ion-button>
+
+  </form>
+</ion-content>

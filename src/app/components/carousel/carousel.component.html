@@ -1,0 +1,23 @@
+<div class="product-carousel-wrapper">
+  <swiper-container [config]="swiperConfig" class="product-carousel" autoplay="true">
+  <swiper-slide *ngFor="let oferta of ofertas$ | async">
+    <ion-card class="product-card">
+      <img [src]="oferta.imgUrl" [alt]="oferta.name" class="product-image">
+    </ion-card>
+  </swiper-slide>
+
+  <swiper-slide *ngIf="(ofertas$ | async)?.length === 0">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>¡Ups!</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>No hay ofertas disponibles.</p>
+      </ion-card-content>
+    </ion-card>
+  </swiper-slide>
+</swiper-container>
+</div>
+
+
+

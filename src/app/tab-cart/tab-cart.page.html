@@ -1,0 +1,64 @@
+<app-header></app-header>
+
+<ion-content [fullscreen]="true">
+  <div class="cart-container">
+    <h1 class="cart-title">Carrito de compras</h1>
+
+    <div *ngIf="loading" class="loading-container">
+      <ion-spinner name="crescent"></ion-spinner>
+    </div>
+
+    <div *ngIf="!loading" class="cart-grid">
+      
+      <!-- Lista de productos -->
+      <div class="cart-items">
+        <div *ngFor="let item of cartItems" class="cart-item">
+          <img [src]="item.imageUrl" alt="{{item.name}}" class="item-image" />
+
+          <div class="item-info">
+            <h2 class="item-name">{{item.name}}</h2>
+            <p class="item-description">{{item.description}}</p>
+            <p class="item-price">$ {{item.price | number:'1.0-0'}}</p>
+          </div>
+
+          <div class="item-actions">
+            <div class="quantity-control">
+              <button (click)="updateQuantity(item, -1)">-</button>
+              <span>{{item.quantity}}</span>
+              <button (click)="updateQuantity(item, 1)">+</button>
+            </div>
+            <button class="remove-btn" (click)="removeItem(item)">
+              <img src="assets/cerrar.png" alt="Eliminar" />
+            </button>
+          </div>
+        </div>
+
+        <p *ngIf="cartItems.length === 0" class="empty-cart">
+          Tu carrito está vacío.
+        </p>
+      </div>
+
+      <!-- Resumen de pedido -->
+      <div class="cart-summary" *ngIf="cartItems.length > 0">
+        <h2>Resumen del pedido</h2>
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span>$ {{total | number:'1.0-0'}}</span>
+        </div>
+        <div class="summary-row">
+          <span>Envío</span>
+          <span>$ {{shipping | number:'1.0-0'}}</span>
+        </div>
+        <div class="summary-total">
+          <span>Total</span>
+          <span>$ {{totalWithShipping | number:'1.0-0'}}</span>
+        </div>
+
+        <ion-button expand="block" color="primary">
+          Proceder al pago
+        </ion-button>
+      </div>
+
+    </div>
+  </div>
+</ion-content>

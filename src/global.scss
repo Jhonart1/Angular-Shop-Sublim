@@ -35,3 +35,12 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+/* Forzar tema claro global */
+body {
+  color-scheme: light;             // indica al navegador que use light
+  --ion-background-color: #ffffff; // fondo claro
+  --ion-text-color: #000000;       // texto oscuro
+  --ion-color-primary: #13a4ec;    // tu color primario
+  --ion-color-primary-rgb: 19,164,236; // versión RGB para gradientes/efectos
+}
