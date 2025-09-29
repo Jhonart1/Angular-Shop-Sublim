@@ -1,10 +1,8 @@
-// src/app/tab3/tab3.page.ts
-
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 // 🎯 Quitar ToastController, ModalController si no se usan en el constructor o ngOnInit
-import { IonicModule, ToastController, ModalController} from '@ionic/angular'; 
+import { IonicModule, ToastController, ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 // ❌ Quitamos las importaciones directas de Firebase (Auth, user, User)
@@ -12,10 +10,7 @@ import { User } from '@angular/fire/auth'; // Solo necesitamos el tipo User, per
 import { AdminProductModalComponent } from '../components/admin-product-modal/admin-product-modal.component';
 import { AdminOfferModalComponent } from '../components/admin-offer-modal/admin-offer-modal.component';
 import { AdminCategoryModalComponent } from '../components/admin-category-modal/admin-category-modal.component';
-
-// 🎯 Importar el servicio de autenticación
 import { AuthService } from '../core/services/auth.service';
-
 
 @Component({
   selector: 'app-tab3',
@@ -23,10 +18,16 @@ import { AuthService } from '../core/services/auth.service';
   styleUrls: ['tab3.page.scss'],
   standalone: true,
   // Asegúrate de que AdminProductModalComponent esté importado si lo usas en el HTML
-  imports: [IonicModule, CommonModule, FormsModule, AdminProductModalComponent, AdminOfferModalComponent, AdminCategoryModalComponent],
+  imports: [
+    IonicModule,
+    CommonModule,
+    FormsModule,
+    AdminProductModalComponent,
+    AdminOfferModalComponent,
+    AdminCategoryModalComponent,
+  ],
 })
 export class Tab3Page implements OnInit {
-  
   user$: Observable<User | null>;
 
   constructor(
@@ -38,8 +39,7 @@ export class Tab3Page implements OnInit {
     this.user$ = this.authService.currentUser$ as Observable<User | null>;
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   /**
    * Cierra la sesión del usuario llamando al servicio.
@@ -68,9 +68,9 @@ export class Tab3Page implements OnInit {
   async showToast() {
     const toast = await this.toastController.create({
       message: 'Función disponible próximamente. 🛠️',
-      duration: 2000, 
-      position: 'bottom', 
-      color: 'dark' 
+      duration: 2000,
+      position: 'bottom',
+      color: 'dark',
     });
     toast.present();
   }
@@ -81,8 +81,8 @@ export class Tab3Page implements OnInit {
   async openAdminModal() {
     // Usamos la clase cssClass definida previamente en el modal (admin-product-modal-desktop)
     const modal = await this.modalController.create({
-      component: AdminProductModalComponent, 
-      cssClass: 'admin-product-modal-desktop', 
+      component: AdminProductModalComponent,
+      cssClass: 'admin-product-modal-desktop',
     });
 
     await modal.present();
@@ -97,7 +97,7 @@ export class Tab3Page implements OnInit {
       cssClass: 'admin-product-modal-desktop', // puedes usar la misma clase CSS que el modal de productos
     });
 
-  await modal.present();
+    await modal.present();
   }
   async openAdminCategoryModal() {
     const modal = await this.modalController.create({

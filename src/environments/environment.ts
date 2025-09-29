@@ -13,6 +13,7 @@ export const environment: FirebaseOptions = {
   messagingSenderId: "1033261148799",
   appId: "1:1033261148799:web:5676b6e3b93a8e01abed4a",
   measurementId: "G-ME0D7VYERB"
+  
 };
 /*
  * For easier debugging in development mode, you can import the following file

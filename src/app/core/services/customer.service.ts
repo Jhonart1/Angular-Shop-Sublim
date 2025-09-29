@@ -1,4 +1,3 @@
-// src/app/core/services/customer.service.ts
 import { Injectable } from '@angular/core';
 import { Firestore, doc, setDoc, getDoc } from '@angular/fire/firestore';
 import { User } from '@angular/fire/auth';
@@ -29,14 +28,9 @@ export class CustomerService {
       email: user.email,
       photoUrl: user.photoURL
     };
-
-    // setDoc con { merge: true } crea o actualiza el documento sin sobrescribir todo
     await setDoc(customerRef, customerData, { merge: true });
   }
 
-  /**
-   * Opcional: Obtener un cliente por su ID
-   */
   async getCustomerById(uid: string): Promise<Customer | null> {
     const customerRef = doc(this.firestore, `customers/${uid}`);
     const snapshot = await getDoc(customerRef);

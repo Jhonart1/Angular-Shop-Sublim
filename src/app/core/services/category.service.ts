@@ -1,4 +1,3 @@
-// src/app/core/services/category.service.ts
 import { Injectable } from '@angular/core';
 import { Firestore, collection, collectionData, addDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';

@@ -3,10 +3,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms'; // 👈 Importar FormsModule y NgForm
-import { 
-  ModalController, 
-  ToastController 
-} from '@ionic/angular/standalone'; // 👈 Componentes Ionic Standalone
+import { ModalController, ToastController } from '@ionic/angular';
 import { ProductService } from 'src/app/core/services/product'; // 👈 Tu servicio de productos
 import { IonicModule } from '@ionic/angular';
 
@@ -18,8 +15,8 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule, CommonModule, FormsModule], // Incluir FormsModule
 })
 export class AdminProductModalComponent {
-
-  newProduct: any = { // Objeto para el binding del formulario
+  newProduct: any = {
+    // Objeto para el binding del formulario
     name: '',
     price: 0,
     imageUrl: '',
@@ -27,14 +24,14 @@ export class AdminProductModalComponent {
     isFeatured: true, // Por defecto, marcado como destacado
     category: 'General',
     stock: 0,
-    createdAt: new Date() // Fecha actual
+    createdAt: new Date(), // Fecha actual
   };
 
   constructor(
     private modalCtrl: ModalController,
     private productService: ProductService, // Inyectar el servicio de productos
     private toastCtrl: ToastController
-  ) { }
+  ) {}
 
   /**
    * Cierra el modal.
@@ -51,28 +48,27 @@ export class AdminProductModalComponent {
       try {
         // Llama a una función en tu servicio para agregar el producto.
         // Asumiendo que ProductService tiene una función addProduct(data: any)
-        await this.productService.addProduct(this.newProduct); 
-        
+        await this.productService.addProduct(this.newProduct);
+
         // Mostrar notificación de éxito
         await this.presentToast('Producto añadido exitosamente. 🎉');
 
         // Cerrar el modal
         this.dismiss();
-
       } catch (error) {
         console.error('Error al añadir producto:', error);
         await this.presentToast('Error al añadir producto.', 'danger');
       }
     }
   }
-  
+
   // Función helper para mostrar notificaciones
   async presentToast(message: string, color: string = 'success') {
     const toast = await this.toastCtrl.create({
       message: message,
       duration: 2500,
       position: 'bottom',
-      color: color
+      color: color,
     });
     toast.present();
   }

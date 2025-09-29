@@ -1,4 +1,3 @@
-// src/app/core/services/ofertas.service.ts
 import { Injectable } from '@angular/core';
 import { Firestore, addDoc, collection, collectionData, query, where } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
@@ -26,7 +25,4 @@ export class OfertasService {
     await addDoc(ofertasRef, offer);
   }
 
-  
-
-  // Aquí puedes añadir métodos editar/eliminar si lo necesitas
 }

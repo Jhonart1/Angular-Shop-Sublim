@@ -1,17 +1,8 @@
-// src/app/core/services/product.service.ts
 
 import { Injectable } from '@angular/core';
-import { 
-  Firestore, 
-  collection, 
-  collectionData, 
-  query, 
-  where, 
-  limit, 
-  addDoc
-} from '@angular/fire/firestore';
+import {  Firestore, collection, collectionData,  query, where, limit, addDoc} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { Product } from '../models/product.model'; // 👈 Importar la interfaz
+import { Product } from '../models/product.model'; 
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +34,7 @@ export class ProductService {
       limit(limitCount)
     );
 
-    // 2. Ejecutar la consulta y forzar el tipado
+    // 2. Ejecutar la consulta 
     return collectionData(featuredQuery, { idField: 'id' }) as Observable<Product[]>;
   }
   addProduct(productData: any) {

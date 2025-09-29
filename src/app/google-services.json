@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1033261148799",
+    "firebase_url": "https://repo-sublime-default-rtdb.firebaseio.com",
+    "project_id": "repo-sublime",
+    "storage_bucket": "repo-sublime.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033261148799:android:58b7bb1d89ccdbefabed4a",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1033261148799-v4n8u75ev1buvi2eqlstc6h4lhr6lgpr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.ionic.starter",
+            "certificate_hash": "d5334c482984af55bf73799be46831b86119b418"
+          }
+        },
+        {
+          "client_id": "1033261148799-ud5t6lci0m5csc3kcshid84jkrfb2mjm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCajpvL9WVqaEQVlgtc1BnaUxJlAWzx2iY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1033261148799-ud5t6lci0m5csc3kcshid84jkrfb2mjm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
